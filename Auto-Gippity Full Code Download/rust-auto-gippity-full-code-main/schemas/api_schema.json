@@ -1,0 +1,26 @@
+[
+  {
+    "route": "/weather/{date}",
+    "is_route_dynamic": "true",
+    "method": "get",
+    "request_body": "None",
+    "response": {
+      "date": "string",
+      "temperature": "number",
+      "description": "string"
+    }
+  },
+  {
+    "route": "/weather",
+    "is_route_dynamic": "false",
+    "method": "get",
+    "request_body": "None",
+    "response": [
+      {
+        "date": "string",
+        "temperature": "number",
+        "description": "string"
+      }
+    ]
+  }
+]

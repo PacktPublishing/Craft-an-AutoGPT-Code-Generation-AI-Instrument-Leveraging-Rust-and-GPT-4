@@ -1,0 +1,31 @@
+name: Run static analysis
+
+env:
+  # enable colored output
+  # https://github.com/pytest-dev/pytest/issues/7443
+  PY_COLORS: 1
+
+on:
+  push:
+    branches: ["main", "marvin-old"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+
+  static_analysis:
+    timeout-minutes: 1
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+      - name: Run pre-commit
+        uses: pre-commit/action@v3.0.0

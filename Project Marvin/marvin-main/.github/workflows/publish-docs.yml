@@ -1,0 +1,37 @@
+name: Publish Docs
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+env:
+  MKDOCS_SOCIAL_CARDS: ${{ vars.MKDOCS_SOCIAL_CARDS }}
+  MKDOCS_MATERIAL_INSIDERS_REPO_RO: ${{ secrets.MKDOCS_MATERIAL_INSIDERS_REPO_RO }}
+
+permissions:
+  contents: write
+jobs:
+  publish-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+      - uses: actions/cache@v3
+        with:
+          key: ${{ github.ref }}
+          path: .cache
+      # for now, only install mkdocs. In the future may need to install Marvin itself.
+      - name: Install dependencies for MKDocs Material
+        run: pip install \
+          mkdocs-material \
+          mkdocs-autolinks-plugin \
+          mkdocs-awesome-pages-plugin \
+          mkdocstrings[python] \
+          mkdocs-jupyter \
+          pillow \
+          cairosvg
+      - name: Publish docs
+        run: mkdocs gh-deploy --force 

@@ -1,0 +1,97 @@
+{# This file was automatically generated - do not edit #}
+
+{% extends "main.html" %}
+
+{% block tabs %}
+  {{ super() }}
+  <style>
+
+    .md-header {
+      position: initial;
+    }
+
+    .md-main__inner {
+      margin: 0;
+    }
+
+    .md-content {
+      display: none;
+    }
+
+    @media screen and (min-width: 60em) {
+      .md-sidebar--secondary {
+        display: none;
+      }
+    }
+
+    @media screen and (min-width: 76.25em) {
+      .md-sidebar--primary {
+        display: none;
+      }
+    }
+    
+    .hero {
+      padding-top: 72px; /* Reduce the padding-top */
+      padding-left: 48px;
+      padding-right: 48px;
+      text-align: center; /* Center the text */
+    }
+    
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem; /* Reduce the margin-bottom */
+    }
+
+    .hero p {
+      margin-bottom: 1rem; /* Reduce the margin-bottom */
+    }
+    
+    .type-heading-md {
+      font-size: 1.875rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .lg\:type-heading-lg {
+      font-size: 2.5rem;
+    }
+    
+    .mb-6 {
+      margin-bottom: 1.5rem;
+    }
+
+
+    .hero-img {
+      max-height: 400px; /* Reduce the max-height */
+      width: auto; /* Adjust the width */
+      height: auto;
+      margin-bottom: 2rem;
+    }
+
+  </style>
+  <section class="mdx-container">
+    <div class="md-grid md-typeset">
+      <div class="mdx-hero hero">
+        <img src="/img/heroes/ai_model_location.png" class="hero-img">
+        <div class="mdx-hero__content">
+          <h1 class="hero-heading">{{ config.site_description }}</h1>
+          <p>{{ config.site_copy }}</p>
+          <a href="{{ config.extra.get_started | url }}" style = "border-radius: 8px;" title="{{ page.next_page.title | e }}" class="md-button md-button--primary">
+            Get Started
+          </a>
+          <a href="{{ config.repo_url }}" style = "border-radius: 8px;" title="Star us on GitHub" class="md-button">
+            Star us on GitHub
+          </a>
+        </div>
+        <div class="mdx-hero__framework">
+          <!-- Framework piece goes here -->
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
